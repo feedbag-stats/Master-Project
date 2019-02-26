@@ -1,0 +1,11 @@
+rm *.aux &>/dev/null
+rm *.bak &>/dev/null
+rm *.log &>/dev/null
+rm *.out &>/dev/null
+rm *.gz  &>/dev/null
+rm *.bbl &>/dev/null
+rm *.blg &>/dev/null
+rm *.dvi &>/dev/null
+rm *.snm &>/dev/null
+rm *.nav &>/dev/null
+rm *.toc &>/dev/null
