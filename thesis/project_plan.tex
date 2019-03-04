@@ -1,13 +1,14 @@
 \documentclass{seal_article}
 \usepackage{seal}
 \usepackage{longtable}
+\usepackage{xcolor}
 
 \iftexshop
 \usepackage{pdfsync}
 \fi
 
-\title{Diploma Thesis Title}
-\subtitle{Project Plan}
+\title{FeedBag Dashboard}
+\subtitle{Master Project}
 
 \begin{document}
 \maketitle
@@ -20,11 +21,10 @@
 \pdfprotrudechars=2
 \fi
 
-\noindent Diploma thesis\\
+\noindent Master Project\\
 \noindent Project period\\
-\noindent Student name\\
-\noindent Email address\\
-\noindent Supervisor name(s)
+\noindent Severin Siffert \newline severin.siffert@uzh.ch \newline Timothy Zemp \newline timothy.zemp@uzh.ch \newline Sarah Zurmühle \newline sarah.zurmuehle2@uzh.ch\\
+\noindent Sebastian Proksch
 
 \section{Project Description}
 
@@ -35,6 +35,82 @@
 
 \section{Background Material}
 
+\subsection{Why a dashboard?}
+Meyer et al. \cite{Meyer:2017:DRS:3171581.3134714} stated, that there are three important points one has to consider when building a soft-monitoring tool for a workplace: 
+\begin{enumerate}
+	\item the varied need of the users have to be met in the data collection and representation step
+	\item it should be possible for the users to actively engage with the system
+	\item the tool should provide more insights into the users work
+\end{enumerate}
+To fulfil all these requirements, creating a dashboard which can be adapted freely to the users needs and let the users interact with the tool, seems to be the best solution for our use case. 
+
+\subsection{Useful Productivity Measures}
+	In 2014 Meyer et al. \cite{Meyer:2014:SDP:2635868.2635892} conducted a survey to find out what activities software developers think of as productive. As part of their research, they ask developers which measurements would help them to assess their personal productivity. The following 23 measures were their result: 
+	\begin{itemize}
+		\item Number of closed work items (tasks and bugs)
+		\item Spend time on each work item
+		\item Spend time reviewing code.
+		\item Spend time writing code.
+		\item Number of contributed code reviews
+		\item Number of created work items which were fixed 
+		\item Number of created work items
+		\item Spend time in meetings
+		\item Number of signed off code reviews
+		\item Number of written test cases
+		\item Spend time on web browsing for work related information
+		\item Number of attended meetings
+		\item Average time for signing off on code reviews
+		\item Spend time in each code project or package
+		\item Number of written test cases which afterwards failed
+		\item Average time to respond to emails
+		\item Spend time on web browsing during work for personal matters
+		\item Number of learned API methods each day
+		\item Number of commits
+		\item Number of written emails
+		\item Number of changed lines of code per day
+		\item Number of changed code elements for the first time
+	\end{itemize} 
+	These measures give us a good overview about what developers think can help them improve their own productivity. However, they are not all applicable for our dashboard. For instance, we cannot measure how much time the developers spend in meetings nor can we measure activities outside of Visual Studio (e.g. the time spend on writing emails). Therefore, we selected the measures of Meyer et al.'s findings \cite{Meyer:2014:SDP:2635868.2635892} which were the most relevant for our project:
+	\begin{itemize}
+		\item Spend time on each work item (coding, testing and debugging)
+		\item Spend time reviewing code.
+		\item Spend time writing code.
+		\item Number of created work items
+		\item Number of signed off code reviews
+		\item Number of written test cases
+		\item Average time for signing off on code reviews
+		\item Spend time in each code project or package
+		\item Number of written test cases which afterwards failed
+		\item Number of commits
+		\item Number of changed lines of code per day
+	\end{itemize}
+	In 2017, Meyer et al. \cite{Meyer:2017:DRS:3171581.3134714} designed recommendations for self-monitoring in the workspace. For their study, they ask developers to rate how interesting some metrics would be to reflect on their work day or work week. There were some metrics, which are unsuitable for our study, so we picked the ones which can be implemented in our dashboard:
+	\begin{itemize}
+		\item Spend time on each file
+		\item Spend time on each Visual Studio project
+		\item Number of looked at or edited code files
+		\item \textcolor{blue}{Spend time writing code}
+		\item \textcolor{blue}{Number of done code reviews}
+		\item \textcolor{blue}{Spend time on code reviews}
+		\item \textcolor{blue}{Number of commits}
+		\item Commit size
+		\item \textcolor{blue}{Spend time on testing and debugging}
+	\end{itemize}
+	The blue entries are also appearing in the findings of Meyer et al. \cite{Meyer:2014:SDP:2635868.2635892} which gives them even more creditability. 
+	According to the combined findings of Meyer et al. \cite{Meyer:2014:SDP:2635868.2635892} and Meyer et al. \cite{Meyer:2017:DRS:3171581.3134714} we conclude that it would be the most efficient to include time and quantitative measures in our dashboard. Therefore, visualising time intervals, timelines or histograms might be an effective way to visualise our metrics. 
+
+\subsection{Dashboard Design}
+
+Meyer et al. \cite{Meyer:2017:DRS:3171581.3134714} defined six tool design recommendations for helping developers increasing their productivity:
+\begin{enumerate}
+	\item "High-level overviews and interactive features to drill- down into details best support retrospecting on work
+	\item Interest in a large and diverse set of measurements and correlations within the data
+	\item Experience sampling increases the self-awareness and leads to richer insights
+	\item Reflecting using the retrospection creates new insights and helps to sort-out misconceptions
+	\item Natural language insights are useful to understand multi-faceted correlations
+	\item Insights need to be concrete and actionable to foster behavior change" \cite[p. 2]{Meyer:2017:DRS:3171581.3134714}
+\end{enumerate}
+For our project, recommendation 2 and 5 are important. It is interesting, that developers prefer correlating data. We implemented this aspect by correlating time with quantity. Furthermore, we were surprised, that visualisations are not as clear to every developer than we thought. We kept this piece of information in mind while designing our graphics. 
 
 \section{Project Management}
 
@@ -49,7 +125,7 @@
 \subsection{Project steps}
 \subsection{Tentative schedule}
 
-\nocite{Zobel04-writing,Strunk00-style}
+%\nocite{Zobel04-writing, Strunk00-style}
 
 \bibliographystyle{abbrv}
 \bibliography{project_plan}
