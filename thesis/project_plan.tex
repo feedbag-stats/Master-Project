@@ -126,6 +126,25 @@ For our project, recommendation 2 and 5 are important. It is interesting, that d
 \subsection{Project steps}
 \subsection{Tentative schedule}
 
+\section{Incremental Processing}
+\begin{itemize}
+\item 2018: Efficient finer-grained incremental processing with MapReduce for big data
+\begin{itemize}
+\item Most logging data is immutable in
+\item More complicated: Also support modifying data
+\item Difficult tradeoff: How big do we make the chunks? Big = lots to update, even with little new data, Small = too hard to search through all chunks
+\item Incremental processing can save 85\%+ of processing time
+\item Overview over existing incremental systems
+\end{itemize}
+\item 2013: large-scale incremental processing with mapreduce (HadUP)
+\begin{itemize}
+\item Current approaches are usually only for Big Data
+\item Typical for incremental processing: deltas are much smaller than complete data
+\item Common problem: small input change affects a lot of output (eg with PageRank)
+\item Many approaces use memoization of intermediary results
+\end{itemize}
+\end{itemize}
+
 %\nocite{Zobel04-writing, Strunk00-style}
 
 \bibliographystyle{abbrv}
