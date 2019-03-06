@@ -1,0 +1,28 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+plugins {
+    id 'groovy'
+}
+
+dependencies {
+    compile group: 'org.eclipse.persistence', name: 'javax.persistence', version: '2.2.1'
+}
+
+group 'ch.uzh.feedbag'
+version '1.0.0'
+
+sourceCompatibility = 1.11
+
+repositories {
+    mavenCentral()
+}
+
+defaultTasks 'build'
+
+jar {
+    enabled = true
+}
